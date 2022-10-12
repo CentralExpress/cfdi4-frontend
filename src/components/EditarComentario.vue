@@ -82,7 +82,7 @@
                 this.propsCliente.sucursal = comento.sucursal
                 this.propsCliente.codigo = comento.codigo
                 console.log(JSON.stringify(this.propsCliente))
-                axios.put('https://192.168.8.200:8000/cambiar_comentario', this.propsCliente)
+                axios.put('https://localhost:8000/cambiar_comentario', this.propsCliente)
                  .then((res) => {
                      console.log(res)
                  })

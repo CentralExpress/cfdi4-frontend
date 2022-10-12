@@ -61,7 +61,7 @@
         methods: {
             async verPdf(cedula){
                 return axios.get(
-                    'https://192.168.8.200:8000/cif/'+cedula.rfc)/* , 
+                    'https://localhost:8000/cif/'+cedula.rfc)/* , 
                     `${process.env.VUE_APP_API_INTRANET}/pdf`, 
                     {
                     responseType: "blob"
@@ -70,7 +70,7 @@
                     console.log(res)
 /*                     const blob = new Blob([res.data]);
                     const objectUrl = URL.createObjectURL(blob); */
-                    this.pdfsrc = 'https://192.168.8.200:8000/cif/'+cedula.rfc
+                    this.pdfsrc = 'https://localhost:8000/cif/'+cedula.rfc
                     console.log(this.pdfsrc)
                     this.respuesta = res.data.toUpperCase()
                  })

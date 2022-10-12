@@ -49,7 +49,7 @@
         },
         methods: {
             async getPdfs(){
-                axios.get('https://192.168.8.200:8000/pdfs_nuevos')
+                axios.get('https://localhost:8000/pdfs_nuevos')
                  .then((res) => {
                      console.log(res)
                      this.respuesta = res.data

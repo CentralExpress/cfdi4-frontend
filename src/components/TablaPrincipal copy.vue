@@ -453,7 +453,7 @@
           
         },
         altaCliente() {
-            axios.post('https://192.168.8.200:8000/alta_cliente', this.propsCliente)
+            axios.post('https://localhost:8000/alta_cliente', this.propsCliente)
                  .then((res) => {
                      console.log(res)
                  })
@@ -486,7 +486,7 @@
         },
         async getClientesAbiertos(){
           try {
-            const response = await fetch('https://192.168.8.200:8000/get_clientes_abiertos')
+            const response = await fetch('https://localhost:8000/get_clientes_abiertos')
             const data = await response.json()
             this.clientesAbiertos = data.data
             /* console.log(data) */
@@ -496,7 +496,7 @@
         },
         async getVendedores(){
           try {
-            const response = await fetch('https://192.168.8.200:8000/get_vendedores')
+            const response = await fetch('https://localhost:8000/get_vendedores')
             const data = await response.json()
             this.vendedores = data.data
             /* console.log(data) */
@@ -506,10 +506,10 @@
         },
 /*         getVendedores(){
             axios
-            .get('https://192.168.8.200:8000/get_vendedores',
+            .get('https://localhost:8000/get_vendedores',
             {
               headers: { 
-                'Access-Control-Allow-Origin': 'https://192.168.8.200:8000',
+                'Access-Control-Allow-Origin': 'https://localhost:8000',
                 'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
             }
             })
@@ -520,13 +520,13 @@
               headers.append('Content-Type', 'application/json');
               headers.append('Accept', 'application/json');
 
-              headers.append('Access-Control-Allow-Origin', 'https://192.168.8.200:8000/get_vendedores');
+              headers.append('Access-Control-Allow-Origin', 'https://localhost:8000/get_vendedores');
               headers.append('Access-Control-Allow-Credentials', 'true');
 
               headers.append('GET', 'POST', 'OPTIONS');
 
 
-              fetch('https://192.168.8.200:8000/get_vendedores', {
+              fetch('https://localhost:8000/get_vendedores', {
                   mode: 'cors',
                   credentials: 'include',
                   method: 'GET',

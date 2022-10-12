@@ -49,7 +49,7 @@
         },
         methods: {
             async verificarCliente(){
-                axios.post('https://192.168.8.200:8000/procesar_pdfs')
+                axios.post('https://localhost:8000/procesar_pdfs')
                  .then((res) => {
                      console.log(res)
                      this.respuesta = res.data

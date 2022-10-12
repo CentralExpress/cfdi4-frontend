@@ -89,7 +89,7 @@
                 })
             },
             altaCliente() {
-            axios.post('https://192.168.8.200:8000/alta_cliente_masivo', this.csvData)
+            axios.post('https://localhost:8000/alta_cliente_masivo', this.csvData)
                  .then((res) => {
                     console.log("Tipo de Archivo=", this.csvData);
                      console.log(res)

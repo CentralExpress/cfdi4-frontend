@@ -146,7 +146,7 @@
         },
         methods: {
             altaCliente() {
-            axios.post('https://192.168.8.200:8000/alta_cliente', this.propsCliente)
+            axios.post('https://localhost:8000/alta_cliente', this.propsCliente)
                  .then((res) => {
                      console.log(res)
                      this.respuesta = res.data.respuesta
@@ -202,7 +202,7 @@
             },
             async getVendedores(){
                 try {
-                    const response = await fetch('https://192.168.8.200:8000/get_vendedores')
+                    const response = await fetch('https://localhost:8000/get_vendedores')
                     const data = await response.json()
                     this.vendedores = data.data
                     /* console.log(data) */

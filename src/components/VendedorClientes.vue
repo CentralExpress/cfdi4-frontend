@@ -98,7 +98,7 @@
         },
         methods: {
             async getClientes(){
-                axios.get('https://192.168.8.200:8000/clientes/' + this.vendedor)
+                axios.get('https://localhost:8000/clientes/' + this.vendedor)
                 .then((res) => {
                     /* console.log(res) */
                     this.clientes=res.data.data.clientes
@@ -138,7 +138,7 @@
             },
             async getVendedores(){
                 try {
-                    const response = await fetch('https://192.168.8.200:8000/get_vendedores')
+                    const response = await fetch('https://localhost:8000/get_vendedores')
                     const data = await response.json()
                     this.vendedores = data.data
                     /* console.log(this.vendedores) */

@@ -261,7 +261,7 @@ import VerPdf from './VerPdf.vue';
         },
         async getClientesAbiertos() {
             try {
-                const response = await fetch("https://192.168.8.200:8000/get_clientes_abiertos");
+                const response = await fetch("https://localhost:8000/get_clientes_abiertos");
                 const data = await response.json();
                 this.clientesAbiertos = data.data;
                 /* console.log(data) */

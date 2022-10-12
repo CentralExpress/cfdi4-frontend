@@ -110,7 +110,7 @@
                 this.propsCliente.sucursal = oculto.sucursal
                 this.propsCliente.codigo = oculto.codigo
                 console.log(JSON.stringify(this.propsCliente))
-                axios.post('https://192.168.8.200:8000/ocultar_cliente', this.propsCliente)
+                axios.post('https://localhost:8000/ocultar_cliente', this.propsCliente)
                  .then((res) => {
                      console.log(res)
                      this.snackbar = true

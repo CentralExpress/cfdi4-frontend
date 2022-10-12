@@ -54,7 +54,7 @@
                 this.propsCliente.sucursal = verificacion.sucursal
                 this.propsCliente.codigo = verificacion.codigo
                 console.log(JSON.stringify(this.propsCliente))
-                axios.post('https://192.168.8.200:8000/verificar_cliente', this.propsCliente)
+                axios.post('https://localhost:8000/verificar_cliente', this.propsCliente)
                  .then((res) => {
                      console.log(res)
                      this.respuesta = res.data.resultado.toUpperCase()

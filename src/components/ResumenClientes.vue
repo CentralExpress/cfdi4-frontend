@@ -100,7 +100,7 @@
         },
         methods: {
             async getResumen(){
-                axios.get('https://192.168.8.200:8000/resumen')
+                axios.get('https://localhost:8000/resumen')
                 .then((res) => {
                     console.log(res)
                     this.snackbar = true

@@ -85,7 +85,7 @@
         }, 
         methods: {
             async verificarTodos(){
-                axios.get('https://192.168.8.200:8000/verificar_todos')
+                axios.get('https://localhost:8000/verificar_todos')
                  .then((res) => {
                      console.log(res)
                      this.snackbar = true

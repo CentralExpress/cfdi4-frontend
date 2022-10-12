@@ -367,7 +367,7 @@
             async getCliente() {
                 try {
                     const response = 
-                    await fetch("https://192.168.8.200:8000/get_cliente?sucursal="
+                    await fetch("https://localhost:8000/get_cliente?sucursal="
                     +this.clienton.sucursal
                     +"&codigo="
                     +this.clienton.codigo);
@@ -381,7 +381,7 @@
             async getClienteCif(){
                 try {
                     const response = 
-                    await fetch("https://192.168.8.200:8000/get_cif?rfc="
+                    await fetch("https://localhost:8000/get_cif?rfc="
                     +this.clienton.rfc);
                     const data = await response.json();
                     this.clienteCifs = [ ];
