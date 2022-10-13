@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "dev": "webpack-dev-server --mode development --open",
+    "build": "webpack --config webpack.prod.js"
   },
   "dependencies": {
     "@flatfile/vuejs": "^3.0.1",
