@@ -1,5 +1,4 @@
 <template>
-    <!-- <v-container> -->
         <v-card>
             <v-card-title>
                 Actualización SAT 4.0
@@ -16,6 +15,11 @@
                   single-line
                 />
             </v-card-title>
+            <v-data-table
+                :headers="headersPlace"
+                :items="placeholders"
+            >
+            </v-data-table>
             <v-data-table
                 :headers="headersTabla"
                 :items="clientesAbiertos"
@@ -51,13 +55,6 @@
                                         ></v-select>
                                 </v-row>
                             </v-col>
-                            <!-- <v-col>
-                                <v-row>
-                                    <v-btn icon elevation="1" @click="forceRerender()">  
-                                        <v-icon>mdi-cached</v-icon>
-                                    </v-btn>
-                                </v-row>
-                            </v-col>  -->
                         </v-row>
                     </v-container>
                 </template>
@@ -153,7 +150,6 @@
               </template> 
             </v-data-table>
         </v-card>
-    <!-- </v-container> -->
   </template>
   
   <script>
@@ -169,6 +165,7 @@ import VerPdf from './VerPdf.vue';
         return {
             collapseOnScroll: true,
             clientesAbiertos: [],
+            placeholders: [],
             listaDatosClientes: [
                 { text: "Razón Social", value: "Razon_Social" },
                 { text: "RFC", value: "RFC" },
@@ -218,11 +215,21 @@ import VerPdf from './VerPdf.vue';
             filtrarPorSucursalValue: null,
             filtrarPorVerificacionValue: null,
             search: "",
-            cedulas: require("../assets/ejemplo.json"),
-            clienteItems: require("../assets/jex.json"),
         };
     },
     computed: {
+        headersPlace() {
+            return [
+                {
+                    text: "ID usuario",
+                    value: "userId"
+                },
+                {
+                    text: "ID",
+                    value: "id"
+                }
+            ]
+        },
         headersTabla() {
             return [
                 {
@@ -261,10 +268,21 @@ import VerPdf from './VerPdf.vue';
         },
         async getClientesAbiertos() {
             try {
-                const response = await fetch("https://localhost:8000/get_clientes_abiertos");
-                const data = await response.json();
-                this.clientesAbiertos = data.data;
-                /* console.log(data) */
+                const response = await fetch("https://192.168.8.202:8000/get_clientes_abiertos", {
+                    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                    mode: 'cors', // no-cors, *cors, same-origin
+                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: 'same-origin', // include, *same-origin, omit
+                    headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: 'follow', // manual, *follow, error
+                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                });
+                 const data = await response.json(); 
+                 this.placeholders = data
+                console.log(JSON.stringify(this.placeholders))
             }
             catch (error) {
                 console.error(error);

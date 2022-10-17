@@ -5,8 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "dev": "webpack-dev-server --mode development --open",
-    "build": "webpack --config webpack.prod.js"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "@flatfile/vuejs": "^3.0.1",
