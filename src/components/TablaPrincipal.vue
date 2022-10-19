@@ -16,11 +16,6 @@
                 />
             </v-card-title>
             <v-data-table
-                :headers="headersPlace"
-                :items="placeholders"
-            >
-            </v-data-table>
-            <v-data-table
                 :headers="headersTabla"
                 :items="clientesAbiertos"
                 :search="search"
@@ -268,21 +263,10 @@ import VerPdf from './VerPdf.vue';
         },
         async getClientesAbiertos() {
             try {
-                const response = await fetch("https://192.168.8.202:8000/get_clientes_abiertos", {
-                    method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                    mode: 'cors', // no-cors, *cors, same-origin
-                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                    credentials: 'same-origin', // include, *same-origin, omit
-                    headers: {
-                    'Content-Type': 'application/json'
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    redirect: 'follow', // manual, *follow, error
-                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                });
+                const response = await fetch("https://cfdi4-api.centralexpress.info/get_clientes_abiertos");
                  const data = await response.json(); 
-                 this.placeholders = data
-                console.log(JSON.stringify(this.placeholders))
+                 this.clientesAbiertos = data.data
+                console.log(JSON.stringify(this.clientesAbiertos))
             }
             catch (error) {
                 console.error(error);
